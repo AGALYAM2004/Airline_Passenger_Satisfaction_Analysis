@@ -8,17 +8,36 @@ import os
 
 st.set_page_config(
     page_title="Skyline Airways Analytics",
-    page_icon="✈️",
     layout="wide"
 )
 
 
-
 # ---------------- LOAD DATA ----------------
-
 
 airline = pd.read_excel(
 r"C:\Users\AGALYAMAHESWARAN\Desktop\Documents\Airline_Passenger_Satisfaction_Analysis\Datasets\train.xlsx"
+)
+
+
+# ---------------- DATA CLEANING ----------------
+
+
+# Customer Type rename
+
+airline['Customer Type'] = airline['Customer Type'].replace(
+    {
+        'Loyal Customer':'Frequent Traveler',
+        'disloyal Customer':'Occasional Traveler'
+    }
+)
+
+
+# Satisfaction convert into 2 categories
+
+airline['satisfaction'] = airline['satisfaction'].replace(
+    {
+        'neutral or dissatisfied':'dissatisfied'
+    }
 )
 
 
@@ -27,7 +46,6 @@ r"C:\Users\AGALYAMAHESWARAN\Desktop\Documents\Airline_Passenger_Satisfaction_Ana
 
 
 st.markdown("""
-
 <style>
 
 .main-title{
@@ -47,7 +65,6 @@ color:#555;
 
 
 
-
 # ---------------- HEADER ----------------
 
 
@@ -59,9 +76,10 @@ with col1:
     logo="Assets/logo.png"
 
     if os.path.exists(logo):
+
         st.image(
-        logo,
-        width=120
+            logo,
+            width=120
         )
 
     else:
@@ -71,8 +89,8 @@ with col1:
 
 with col2:
 
-
     st.markdown(
+
     """
     <div class="main-title">
     SKYLINE AIRWAYS
@@ -83,6 +101,7 @@ with col2:
     </div>
 
     """,
+
     unsafe_allow_html=True
     )
 
@@ -92,19 +111,20 @@ st.divider()
 
 
 
-# ---------------- FILTER ----------------
+# ---------------- FILTERS ----------------
 
 
 st.sidebar.header("Dashboard Filters")
 
 
+
 classes = st.sidebar.multiselect(
 
-"Travel Class",
+    "Travel Class",
 
-airline["Class"].unique(),
+    airline["Class"].unique(),
 
-default=airline["Class"].unique()
+    default=airline["Class"].unique()
 
 )
 
@@ -112,26 +132,44 @@ default=airline["Class"].unique()
 
 customers = st.sidebar.multiselect(
 
-"Customer Type",
+    "Customer Type",
 
-airline["Customer Type"].unique(),
+    airline["Customer Type"].unique(),
 
-default=airline["Customer Type"].unique()
+    default=airline["Customer Type"].unique()
 
 )
 
 
 
+satisfaction_filter = st.sidebar.multiselect(
+
+    "Satisfaction",
+
+    airline["satisfaction"].unique(),
+
+    default=airline["satisfaction"].unique()
+
+)
+
+
+
+# Filter data
+
+
 df = airline[
 
-(airline["Class"].isin(classes))
+    (airline["Class"].isin(classes))
 
-&
+    &
 
-(airline["Customer Type"].isin(customers))
+    (airline["Customer Type"].isin(customers))
+
+    &
+
+    (airline["satisfaction"].isin(satisfaction_filter))
 
 ]
-
 
 
 
@@ -162,7 +200,7 @@ total=len(df)
 
 
 
-satisfied=(
+satisfied = (
 
 df["satisfaction"]
 
@@ -176,13 +214,13 @@ df["satisfaction"]
 
 
 
-dissatisfied=(
+dissatisfied = (
 
 df["satisfaction"]
 
 .value_counts(normalize=True)
 
-.get("neutral or dissatisfied",0)
+.get("dissatisfied",0)
 
 *100
 
@@ -202,7 +240,7 @@ df["Arrival Delay in Minutes"].mean()
 
 
 
-service_score=df[service_columns].mean().mean()
+service_score = df[service_columns].mean().mean()
 
 
 
@@ -211,7 +249,7 @@ st.subheader("📌 Business KPI")
 
 
 
-a,b,c,d,e=st.columns(5)
+a,b,c,d,e = st.columns(5)
 
 
 
@@ -221,10 +259,12 @@ f"{total:,}"
 )
 
 
+
 b.metric(
 "Satisfaction %",
 f"{satisfied:.1f}%"
 )
+
 
 
 c.metric(
@@ -233,10 +273,12 @@ f"{dissatisfied:.1f}%"
 )
 
 
+
 d.metric(
 "Average Delay",
 f"{avg_delay:.1f} min"
 )
+
 
 
 e.metric(
@@ -246,21 +288,19 @@ f"{service_score:.2f}/5"
 
 
 
-st.divider()
 
+st.divider()
 
 
 
 # ---------------- CHART FUNCTION ----------------
 
 
-
 def chart():
 
-    fig,ax=plt.subplots()
+    fig,ax = plt.subplots()
 
     return fig,ax
-
 
 
 
@@ -269,8 +309,11 @@ def chart():
 
 
 
-c1,c2=st.columns(2)
+c1,c2 = st.columns(2)
 
+
+
+# Satisfaction chart
 
 
 with c1:
@@ -284,20 +327,25 @@ with c1:
 
     df["satisfaction"].value_counts().plot(
 
-    kind="pie",
+        kind="pie",
 
-    autopct="%1.1f%%",
+        autopct="%1.1f%%",
 
-    ax=ax
+        ax=ax
 
     )
 
 
     ax.set_ylabel("")
 
+
     st.pyplot(fig)
 
 
+
+
+
+# Travel Class chart
 
 
 with c2:
@@ -311,18 +359,32 @@ with c2:
 
     df.groupby(
 
-    "Class"
+        "Class"
 
     )["satisfaction"].value_counts().unstack().plot(
 
-    kind="bar",
+        kind="bar",
 
-    ax=ax
+        ax=ax
 
     )
 
 
+    ax.tick_params(
+
+        axis='x',
+
+        rotation=0
+
+    )
+
+
+    ax.set_ylabel("Passengers")
+
+
     st.pyplot(fig)
+
+
 
 
 
@@ -331,8 +393,11 @@ with c2:
 
 
 
-c3,c4=st.columns(2)
+c3,c4 = st.columns(2)
 
+
+
+# Service rating
 
 
 with c3:
@@ -346,9 +411,9 @@ with c3:
 
     df[service_columns].mean().plot(
 
-    kind="barh",
+        kind="barh",
 
-    ax=ax
+        ax=ax
 
     )
 
@@ -362,6 +427,10 @@ with c3:
 
 
 
+
+# Customer type
+
+
 with c4:
 
 
@@ -371,22 +440,36 @@ with c4:
     fig,ax=chart()
 
 
+
     df.groupby(
 
-    "Customer Type"
+        "Customer Type"
 
     )["satisfaction"].value_counts().unstack().plot(
 
-    kind="bar",
+        kind="bar",
 
-    stacked=True,
+        stacked=True,
 
-    ax=ax
+        ax=ax
 
     )
 
 
+    ax.tick_params(
+
+        axis='x',
+
+        rotation=0
+
+    )
+
+
+    ax.set_ylabel("Passengers")
+
+
     st.pyplot(fig)
+
 
 
 
@@ -396,8 +479,11 @@ with c4:
 
 
 
-c5,c6=st.columns(2)
+c5,c6 = st.columns(2)
 
+
+
+# Delay impact
 
 
 with c5:
@@ -411,7 +497,7 @@ with c5:
 
     df.groupby(
 
-    "satisfaction"
+        "satisfaction"
 
     )[
 
@@ -425,9 +511,18 @@ with c5:
 
     ].mean().plot(
 
-    kind="bar",
+        kind="bar",
 
-    ax=ax
+        ax=ax
+
+    )
+
+
+    ax.tick_params(
+
+        axis='x',
+
+        rotation=0
 
     )
 
@@ -436,6 +531,11 @@ with c5:
 
 
 
+
+
+
+
+# Scatter plot
 
 
 with c6:
@@ -449,19 +549,26 @@ with c6:
 
     ax.scatter(
 
-    df["Departure Delay in Minutes"],
+        df["Departure Delay in Minutes"],
 
-    df["Arrival Delay in Minutes"]
+        df["Arrival Delay in Minutes"]
 
     )
 
 
-    ax.set_xlabel("Departure Delay")
+    ax.set_xlabel(
+        "Departure Delay"
+    )
 
-    ax.set_ylabel("Arrival Delay")
+
+    ax.set_ylabel(
+        "Arrival Delay"
+    )
 
 
     st.pyplot(fig)
+
+
 
 
 
@@ -473,7 +580,9 @@ with c6:
 st.divider()
 
 
+
 st.subheader("📄 Passenger Raw Data")
+
 
 
 st.dataframe(
@@ -482,4 +591,71 @@ df.head(20),
 
 use_container_width=True
 
+)
+
+
+
+# ---------------- RECOMMENDATIONS ----------------
+
+
+st.divider()
+
+
+st.subheader("💡 Business Recommendations for Skyline Airways")
+
+
+st.markdown(
+"""
+### 1. Improve Flight Delay Management
+- Analyze the major causes of departure and arrival delays.
+- Improve scheduling and operational planning.
+- Provide real-time updates to passengers during delays.
+
+
+### 2. Improve Low Rated Services
+- Focus on services with lower passenger ratings.
+- Improve areas like food quality, cleanliness, baggage handling, and online boarding experience.
+
+
+### 3. Enhance Economy Class Experience
+- If Economy passengers show lower satisfaction, improve:
+    - Seat comfort
+    - Food quality
+    - Customer support
+    - Overall travel experience
+
+
+### 4. Retain Frequent Travelers
+- Frequent travelers are valuable customers.
+- Provide better loyalty benefits and personalized services to increase retention.
+
+
+### 5. Improve Digital Experience
+- Simplify online booking and boarding process.
+- Provide a smoother mobile and web experience for passengers.
+
+"""
+)
+
+
+
+# ---------------- PROJECT AUTHOR ----------------
+
+
+st.divider()
+
+
+
+st.markdown(
+"""
+
+**Author:**  
+Agalya M
+
+
+**Role:**  
+Data Analyst Project
+
+
+"""
 )
