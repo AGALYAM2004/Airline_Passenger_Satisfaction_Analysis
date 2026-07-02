@@ -1,235 +1,287 @@
-# ✈️ Airline Customer Satisfaction Analytics
+# ✈️ Airline Customer Satisfaction Analysis – Skyline Airways
 
-## Project Title
-**Airline Customer Satisfaction & Service Quality Analytics**
-
-## Author
-**Agalya M**
+An interactive data analytics project that analyzes airline passenger feedback to identify customer satisfaction levels, service quality, and operational performance. The project helps Skyline Airways understand customer needs and make better business decisions through an interactive Streamlit dashboard.
 
 ---
 
-## 📌 Project Overview
+# 📸 Dashboard Preview
 
-This project analyzes airline passenger feedback data to understand customer satisfaction and identify the major factors affecting passenger experience.
+## Dashboard Overview
 
-The analysis focuses on how factors such as flight delays, service quality, travel class, customer type, and passenger demographics influence satisfaction levels.
+> Add your dashboard screenshot here.
 
-The final outcome is an interactive dashboard that helps airlines understand customer needs and improve service quality.
+![Dashboard Overview](images/dashboard_overview.png)
+
+---
+
+## 📊 Dashboard Features
+
+The dashboard includes:
+
+- 📌 Business KPI Cards
+- 📈 Customer Satisfaction Analysis
+- ✈️ Travel Class Performance
+- ⭐ Service Quality Ratings
+- 👥 Customer Type Analysis
+- ⏳ Delay Impact Analysis
+- 📉 Departure vs Arrival Delay Correlation
+- 💡 Business Recommendations
+- 📄 Passenger Raw Data
+
+---
+
+# 📖 Project Overview
+
+Customer satisfaction is one of the most important factors in the airline industry.
+
+Passengers share feedback about their travel experience, including booking, boarding, seat comfort, food, baggage handling, cleanliness, and flight delays.
+
+This project analyzes passenger feedback to identify the key factors that influence customer satisfaction and provides business recommendations that can improve overall service quality.
 
 ---
 
 # 🎯 Problem Statement
 
-Airlines collect a large amount of passenger feedback, but identifying the main reasons behind customer dissatisfaction is challenging.
+Skyline Airways receives thousands of passenger feedback records after every journey.
 
-This project aims to analyze passenger satisfaction data, discover key satisfaction drivers, identify service issues, and provide data-driven recommendations to improve passenger experience.
+Analyzing all the feedback manually is difficult.
 
----
+This project helps answer important business questions such as:
 
-# 📂 Dataset
-
-**Dataset Name:**
-Airline Passenger Satisfaction Dataset
-
-**Source:**
-Kaggle
-
-Dataset contains passenger information such as:
-
-- Passenger demographics
-- Travel class
-- Customer type
-- Flight delays
-- Service ratings
-- Satisfaction level
+- What is the overall customer satisfaction rate?
+- Which services receive lower ratings?
+- How do flight delays affect customer satisfaction?
+- Which travel class performs better?
+- Which customer group requires more attention?
+- What improvements should the airline prioritize?
 
 ---
 
-# 🛠 Tools & Technologies Used
+# 🎯 Project Objectives
 
-## Python
-Used for data analysis and visualization.
+- Analyze overall passenger satisfaction.
+- Compare satisfaction across travel classes.
+- Evaluate airline service quality.
+- Analyze the impact of departure and arrival delays.
+- Compare Frequent Travelers and Occasional Travelers.
+- Build an interactive dashboard for management.
+- Provide business recommendations based on data.
 
-Libraries:
+---
 
+# 🛠️ Tools & Technologies
+
+- Python
 - Pandas
-- NumPy
 - Matplotlib
-
-## Excel
-Used for:
-- Data understanding
-- Initial exploration
-
-## SQL
-Used for:
-- Data querying
-- Business analysis
-
-## Power BI / Streamlit
-Used for:
-- Interactive dashboard creation
-- Data visualization
+- Streamlit
+- Excel
 
 ---
 
-# 🔄 Project Workflow
+# 📂 Dataset Information
 
-## 1. Data Collection
+The dataset contains passenger information such as:
 
-Collected airline passenger satisfaction dataset from Kaggle.
+- Gender
+- Age
+- Customer Type
+- Travel Class
+- Flight Distance
+- Departure Delay
+- Arrival Delay
+- Seat Comfort
+- Food & Drink
+- Inflight Service
+- Online Boarding
+- Cleanliness
+- Baggage Handling
+- Customer Satisfaction
 
 ---
 
-## 2. Data Cleaning
+# 📊 Dashboard KPIs
 
-Performed:
+The dashboard provides the following Key Performance Indicators:
 
-- Handling missing values
-- Removing unnecessary columns
-- Correcting column names
-- Checking data types
-- Preparing data for analysis
+- 👥 Total Passengers
+- 😊 Customer Satisfaction %
+- 😞 Customer Dissatisfaction %
+- ⏱️ Average Flight Delay
+- ⭐ Average Service Rating
 
 ---
 
-## 3. Exploratory Data Analysis
+# 📈 Dashboard Visualizations
 
-Analyzed:
+### Customer Satisfaction Distribution
 
-### Customer Satisfaction
+Shows the percentage of satisfied and dissatisfied passengers.
 
-- Overall satisfaction percentage
-- Satisfied vs dissatisfied passengers
+---
 
+### Travel Class Performance
 
-### Flight Delay Analysis
-
-- Departure delay impact
-- Arrival delay impact
-
-
-### Travel Class Analysis
-
-Compared:
+Compares customer satisfaction across:
 
 - Business Class
 - Economy Class
 - Economy Plus
 
+---
+
+### Service Quality Rating
+
+Displays the average rating for airline services such as:
+
+- Seat Comfort
+- Food & Drink
+- Inflight Service
+- Online Boarding
+- Cleanliness
+- Baggage Handling
+
+---
 
 ### Customer Type Analysis
 
-Compared:
+Compares:
 
-- Loyal customers
-- Disloyal customers
+- Frequent Travelers
+- Occasional Travelers
 
-
-### Service Quality Analysis
-
-Analyzed ratings of:
-
-- Seat comfort
-- In-flight service
-- Food and beverages
-- Cleanliness
-- Online boarding
-- Baggage handling
-
-
-### Passenger Demographic Analysis
-
-Studied:
-
-- Age impact
-- Travel purpose
+to understand customer loyalty and satisfaction.
 
 ---
 
-# 📊 Dashboard Features
+### Delay Impact Analysis
 
-The Streamlit dashboard includes:
-
-## KPI Cards
-
-- Total Passengers
-- Customer Satisfaction %
-- Dissatisfaction %
-- Average Flight Delay
-- Average Service Rating
-
-
-## Visualizations
-
-### 1. Customer Satisfaction Distribution
-
-Shows percentage of satisfied and dissatisfied passengers.
-
-
-### 2. Satisfaction by Travel Class
-
-Identifies which class provides better customer experience.
-
-
-### 3. Service Quality Ratings
-
-Finds services that require improvement.
-
-
-### 4. Customer Type Analysis
-
-Compares loyal and disloyal customers.
-
-
-### 5. Delay Impact Analysis
-
-Shows relationship between flight delays and satisfaction.
-
-
-### 6. Delay Correlation
-
-Analyzes relationship between departure and arrival delays.
-
+Shows how departure and arrival delays influence customer satisfaction.
 
 ---
 
-# 🔍 Key Analysis Questions
+### Correlation Analysis
 
-1. What percentage of passengers are satisfied?
+A scatter plot showing the relationship between Departure Delay and Arrival Delay.
 
-2. How many passengers are dissatisfied?
+---
 
-3. Do flight delays affect satisfaction?
+# 🔍 Key Insights
 
-4. Which travel class has the highest satisfaction?
-
-5. Which service factors impact satisfaction?
-
-6. Which services receive low ratings?
-
-7. Are loyal customers more satisfied?
-
-8. Does passenger age affect satisfaction?
+- Frequent Travelers represent the largest customer segment.
+- Business Class passengers generally report higher satisfaction.
+- Flight delays significantly impact customer experience.
+- Online Boarding and Food & Drink receive comparatively lower ratings.
+- Better operational planning can improve customer satisfaction.
 
 ---
 
 # 💡 Business Recommendations
 
-Based on analysis:
-
-1. Improve flight scheduling to reduce delays.
-
-2. Focus on low-rated services such as online boarding and cleanliness.
-
-3. Improve customer support and baggage handling experience.
-
-4. Develop strategies to retain loyal customers.
-
-5. Enhance economy class services to improve satisfaction.
+- Reduce departure and arrival delays.
+- Improve Online Boarding experience.
+- Enhance Food & Drink quality.
+- Improve Economy Class services.
+- Strengthen loyalty programs for Frequent Travelers.
 
 ---
 
-# 🚀 How to Run Dashboard
+# 📁 Project Structure
 
-Install required libraries:
+```text
+Airline_Passenger_Satisfaction_Analysis/
+│
+├── Assets/
+│   └── logo.png
+│
+├── Datasets/
+│   ├── train.xlsx
+│   └── test.csv
+│
+├── images/
+│   └── dashboard_overview.png
+│
+├── Source/
+│   ├── Airline_Analysis.ipynb
+│   └── app.py
+│
+├── requirements.txt
+├── README.md
+└── .gitignore
+```
+
+---
+
+# ▶️ How to Run the Project
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/Airline_Customer_Satisfaction_Analysis.git
+```
+
+### 2. Install Required Libraries
+
+```bash
+pip install -r requirements.txt
+```
+
+### 3. Open the Source Folder
+
+```bash
+cd Source
+```
+
+### 4. Run the Dashboard
+
+```bash
+streamlit run app.py
+```
+
+The dashboard will automatically open in your web browser.
+
+---
+
+# 📌 Dashboard Filters
+
+The dashboard allows users to filter data by:
+
+- Travel Class
+- Customer Type
+- Satisfaction Level
+
+This helps management analyze different customer groups more effectively.
+
+---
+
+# 🚀 Future Improvements
+
+- Customer Satisfaction Prediction using Machine Learning
+- Live Airline Data Integration
+- More interactive dashboard filters
+- Monthly and yearly trend analysis
+- Cloud deployment using Streamlit Community Cloud
+
+---
+
+# 👩‍💻 Author
+
+**Agalya Maheswaran**
+
+Aspiring Data Analyst
+
+### Skills
+
+- Python
+- SQL
+- Excel
+- Power BI
+- Pandas
+- Matplotlib
+- Streamlit
+
+---
+
+# Thank You
+
+Thank you for visiting this project.
