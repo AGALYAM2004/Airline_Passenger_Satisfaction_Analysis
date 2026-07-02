@@ -1,138 +1,140 @@
-# ✈️ Airline Customer Satisfaction Analysis – Skyline Airways
+# ✈️ Skyline Airways Customer Satisfaction Analysis
 
-An interactive data analytics project that analyzes airline passenger feedback to identify customer satisfaction levels, service quality, and operational performance. The project helps Skyline Airways understand customer needs and make better business decisions through an interactive Streamlit dashboard.
+A complete Data Analytics project built using **Python, Streamlit, Excel, Pandas, Matplotlib, and GitHub** to analyze airline passenger satisfaction and service quality.
 
----
-
-# 📸 Dashboard Preview
-
-## Dashboard Overview
-
-> Add your dashboard screenshot here.
-
-![Dashboard Overview](images/dashboard_overview.png)
+The dashboard helps management understand customer satisfaction, travel class performance, service ratings, customer behavior, and flight delays through interactive visualizations.
 
 ---
 
-## 📊 Dashboard Features
+## 📌 Project Overview
 
-The dashboard includes:
+Customer satisfaction is one of the most important success factors in the airline industry. Airlines receive thousands of passenger reviews every day, making it difficult to identify the key reasons behind customer satisfaction and dissatisfaction.
 
-- 📌 Business KPI Cards
-- 📈 Customer Satisfaction Analysis
-- ✈️ Travel Class Performance
-- ⭐ Service Quality Ratings
-- 👥 Customer Type Analysis
-- ⏳ Delay Impact Analysis
-- 📉 Departure vs Arrival Delay Correlation
-- 💡 Business Recommendations
-- 📄 Passenger Raw Data
+This project analyzes airline passenger data to identify:
 
----
+- Customer satisfaction level
+- Service quality performance
+- Flight delay impact
+- Travel class performance
+- Customer type analysis
+- Business recommendations
 
-# 📖 Project Overview
-
-Customer satisfaction is one of the most important factors in the airline industry.
-
-Passengers share feedback about their travel experience, including booking, boarding, seat comfort, food, baggage handling, cleanliness, and flight delays.
-
-This project analyzes passenger feedback to identify the key factors that influence customer satisfaction and provides business recommendations that can improve overall service quality.
+An interactive **Streamlit Dashboard** allows users to filter data and explore insights in real time.
 
 ---
 
-# 🎯 Problem Statement
+# 📊 Dashboard Preview
 
-Skyline Airways receives thousands of passenger feedback records after every journey.
+The dashboard provides an interactive overview of business KPIs, customer satisfaction, travel class performance, service quality, delay analysis, and customer segmentation.
 
-Analyzing all the feedback manually is difficult.
+<p align="center">
+<img src="images/dashboard_overview_combined.png" width="100%">
+</p>
 
-This project helps answer important business questions such as:
+---
 
-- What is the overall customer satisfaction rate?
-- Which services receive lower ratings?
-- How do flight delays affect customer satisfaction?
+# 🎯 Business Problem
+
+Airlines need to improve passenger satisfaction while maintaining operational efficiency.
+
+However, management often struggles to identify:
+
+- Which passengers are satisfied?
 - Which travel class performs better?
-- Which customer group requires more attention?
-- What improvements should the airline prioritize?
+- Which services require improvement?
+- How delays affect customer experience?
+- Which customer segment is most valuable?
+
+This dashboard answers these business questions using data-driven insights.
 
 ---
 
 # 🎯 Project Objectives
 
-- Analyze overall passenger satisfaction.
-- Compare satisfaction across travel classes.
-- Evaluate airline service quality.
-- Analyze the impact of departure and arrival delays.
-- Compare Frequent Travelers and Occasional Travelers.
-- Build an interactive dashboard for management.
-- Provide business recommendations based on data.
+- Analyze airline passenger satisfaction.
+- Evaluate service quality ratings.
+- Compare travel class performance.
+- Study the impact of flight delays.
+- Analyze frequent and occasional travelers.
+- Build an interactive dashboard for business users.
 
 ---
 
-# 🛠️ Tools & Technologies
+# 📁 Dataset Information
 
-- Python
-- Pandas
-- Matplotlib
-- Streamlit
-- Excel
+**Dataset:** Airline Passenger Satisfaction Dataset
 
----
+**Rows:** 103,904
 
-# 📂 Dataset Information
+**Columns:** 24
 
-The dataset contains passenger information such as:
+The dataset contains:
 
-- Gender
-- Age
-- Customer Type
+- Passenger Demographics
 - Travel Class
-- Flight Distance
-- Departure Delay
-- Arrival Delay
-- Seat Comfort
-- Food & Drink
-- Inflight Service
-- Online Boarding
-- Cleanliness
-- Baggage Handling
-- Customer Satisfaction
+- Customer Type
+- Flight Delays
+- Service Ratings
+- Overall Satisfaction
 
 ---
 
-# 📊 Dashboard KPIs
+# 🛠 Tools & Technologies
 
-The dashboard provides the following Key Performance Indicators:
-
-- 👥 Total Passengers
-- 😊 Customer Satisfaction %
-- 😞 Customer Dissatisfaction %
-- ⏱️ Average Flight Delay
-- ⭐ Average Service Rating
-
----
-
-# 📈 Dashboard Visualizations
-
-### Customer Satisfaction Distribution
-
-Shows the percentage of satisfied and dissatisfied passengers.
+| Tool | Purpose |
+|-------|----------|
+| Python | Data Analysis |
+| Pandas | Data Cleaning |
+| Matplotlib | Data Visualization |
+| Streamlit | Interactive Dashboard |
+| Excel | Dataset Preparation |
+| Git & GitHub | Version Control |
 
 ---
 
-### Travel Class Performance
+# 📈 Dashboard Features
 
-Compares customer satisfaction across:
+### 📌 Business KPIs
+
+The dashboard displays:
+
+- Total Passengers
+- Satisfaction Percentage
+- Dissatisfaction Percentage
+- Average Flight Delay
+- Overall Service Rating
+
+---
+
+### 📊 Customer Satisfaction
+
+Displays the percentage of satisfied and dissatisfied passengers.
+
+Business Value:
+
+- Measures overall customer happiness.
+- Helps management monitor customer experience.
+
+---
+
+### 📊 Travel Class Performance
+
+Compares satisfaction across:
 
 - Business Class
-- Economy Class
-- Economy Plus
+- Eco Class
+- Eco Plus
+
+Business Value:
+
+- Identifies the best-performing travel class.
+- Helps improve lower-performing classes.
 
 ---
 
-### Service Quality Rating
+### ⭐ Service Quality Rating
 
-Displays the average rating for airline services such as:
+Shows average ratings for:
 
 - Seat Comfort
 - Food & Drink
@@ -141,126 +143,147 @@ Displays the average rating for airline services such as:
 - Cleanliness
 - Baggage Handling
 
+Business Value:
+
+- Identifies services that require improvement.
+- Supports customer experience initiatives.
+
 ---
 
-### Customer Type Analysis
+### 👥 Customer Type Analysis
 
 Compares:
 
 - Frequent Travelers
 - Occasional Travelers
 
-to understand customer loyalty and satisfaction.
+Business Value:
+
+- Understands customer loyalty.
+- Helps create personalized marketing strategies.
 
 ---
 
-### Delay Impact Analysis
+### ⏱ Delay Impact Analysis
 
-Shows how departure and arrival delays influence customer satisfaction.
+Compares:
 
----
+- Departure Delay
+- Arrival Delay
 
-### Correlation Analysis
+Business Value:
 
-A scatter plot showing the relationship between Departure Delay and Arrival Delay.
-
----
-
-# 🔍 Key Insights
-
-- Frequent Travelers represent the largest customer segment.
-- Business Class passengers generally report higher satisfaction.
-- Flight delays significantly impact customer experience.
-- Online Boarding and Food & Drink receive comparatively lower ratings.
-- Better operational planning can improve customer satisfaction.
+- Measures how delays affect customer satisfaction.
+- Helps improve operational efficiency.
 
 ---
 
-# 💡 Business Recommendations
+### 📉 Departure vs Arrival Delay
 
+Scatter plot showing the relationship between departure and arrival delays.
+
+Business Value:
+
+- Identifies delay patterns.
+- Helps airlines reduce cascading delays.
+
+---
+
+# 🎛 Dashboard Filters
+
+Users can filter data by:
+
+- Travel Class
+- Customer Type
+- Satisfaction
+
+The dashboard updates all KPIs and charts instantly.
+
+---
+
+# 💡 Key Insights
+
+- Business Class passengers show the highest satisfaction.
+- Economy passengers are comparatively less satisfied.
+- Frequent travelers represent the largest customer segment.
+- Flight delays significantly impact satisfaction.
+- Service ratings remain above average but still have improvement opportunities.
+- Cleanliness and baggage handling receive better ratings than other services.
+
+---
+
+# ✅ Business Recommendations
+
+- Improve Economy Class experience.
 - Reduce departure and arrival delays.
-- Improve Online Boarding experience.
-- Enhance Food & Drink quality.
-- Improve Economy Class services.
-- Strengthen loyalty programs for Frequent Travelers.
+- Enhance food and onboard services.
+- Introduce loyalty rewards for frequent travelers.
+- Improve digital check-in and online boarding.
 
 ---
 
-# 📁 Project Structure
+# 📂 Project Structure
 
-```text
+```
 Airline_Passenger_Satisfaction_Analysis/
+
 │
-├── Assets/
-│   └── logo.png
-│
+
 ├── Datasets/
-│   ├── train.xlsx
-│   └── test.csv
-│
-├── images/
-│   └── dashboard_overview.png
-│
+│ └── train.xlsx
+
 ├── Source/
-│   ├── Airline_Analysis.ipynb
-│   └── app.py
-│
-├── requirements.txt
+│ ├── app.py
+│ └── Airline_Analysis.ipynb
+
+├── images/
+│ └── dashboard_overview_combined.png
+
 ├── README.md
-└── .gitignore
+
+├── requirements.txt
+
+└── ProblemStatement.docx
 ```
 
 ---
 
-# ▶️ How to Run the Project
+# ▶️ How to Run
 
-### 1. Clone the Repository
+Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/Airline_Customer_Satisfaction_Analysis.git
+git clone https://github.com/yourusername/Airline_Passenger_Satisfaction_Analysis.git
 ```
 
-### 2. Install Required Libraries
+Go to the project folder
+
+```bash
+cd Airline_Passenger_Satisfaction_Analysis
+```
+
+Install required libraries
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Open the Source Folder
+Run the Streamlit application
 
 ```bash
-cd Source
+streamlit run Source/app.py
 ```
-
-### 4. Run the Dashboard
-
-```bash
-streamlit run app.py
-```
-
-The dashboard will automatically open in your web browser.
 
 ---
 
-# 📌 Dashboard Filters
+# 📌 Future Improvements
 
-The dashboard allows users to filter data by:
-
-- Travel Class
-- Customer Type
-- Satisfaction Level
-
-This helps management analyze different customer groups more effectively.
-
----
-
-# 🚀 Future Improvements
-
-- Customer Satisfaction Prediction using Machine Learning
+- Power BI Dashboard
+- SQL Integration
+- Machine Learning Prediction
+- Passenger Segmentation
+- Cloud Deployment
 - Live Airline Data Integration
-- More interactive dashboard filters
-- Monthly and yearly trend analysis
-- Cloud deployment using Streamlit Community Cloud
 
 ---
 
@@ -270,18 +293,18 @@ This helps management analyze different customer groups more effectively.
 
 Aspiring Data Analyst
 
-### Skills
+**Skills**
 
 - Python
 - SQL
 - Excel
 - Power BI
+- Streamlit
 - Pandas
 - Matplotlib
-- Streamlit
+- Git & GitHub
 
 ---
 
-# Thank You
+# ⭐ If you found this project helpful, consider giving it a Star on GitHub!
 
-Thank you for visiting this project.
