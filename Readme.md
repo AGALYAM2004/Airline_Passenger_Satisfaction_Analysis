@@ -28,7 +28,7 @@ An interactive **Streamlit Dashboard** allows users to filter data and explore i
 The dashboard provides an interactive overview of business KPIs, customer satisfaction, travel class performance, service quality, delay analysis, and customer segmentation.
 
 <p align="center">
-<img src="images/dashboard_overview_combined.png" width="100%">
+<img src="images/dashboard_overview.png" width="100%">
 </p>
 
 ---
