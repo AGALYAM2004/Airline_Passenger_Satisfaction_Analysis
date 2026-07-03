@@ -289,16 +289,7 @@ Author
 
 Aspiring Data Analyst
 
-**Skills**
 
-- Python
-- SQL
-- Excel
-- Power BI
-- Streamlit
-- Pandas
-- Matplotlib
-- Git & GitHub
 
 ---
 
