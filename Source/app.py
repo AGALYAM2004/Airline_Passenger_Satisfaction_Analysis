@@ -14,9 +14,11 @@ st.set_page_config(
 
 # ---------------- LOAD DATA ----------------
 
-airline = pd.read_excel(
-r"C:\Users\AGALYAMAHESWARAN\Desktop\Documents\Airline_Passenger_Satisfaction_Analysis\Datasets\train.xlsx"
-)
+from pathlib import Path
+import pandas as pd
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+airline = pd.read_excel(BASE_DIR / "Datasets" / "train.xlsx")
 
 
 # ---------------- DATA CLEANING ----------------
