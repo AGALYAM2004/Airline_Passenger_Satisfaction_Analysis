@@ -1,12 +1,11 @@
-# ✈️ Skyline Airways Customer Satisfaction Analysis
+Skyline Airways Customer Satisfaction Analysis
 
 A complete Data Analytics project built using **Python, Streamlit, Excel, Pandas, Matplotlib, and GitHub** to analyze airline passenger satisfaction and service quality.
 
 The dashboard helps management understand customer satisfaction, travel class performance, service ratings, customer behavior, and flight delays through interactive visualizations.
 
 ---
-
-## 📌 Project Overview
+Project Overview
 
 Customer satisfaction is one of the most important success factors in the airline industry. Airlines receive thousands of passenger reviews every day, making it difficult to identify the key reasons behind customer satisfaction and dissatisfaction.
 
@@ -22,8 +21,7 @@ This project analyzes airline passenger data to identify:
 An interactive **Streamlit Dashboard** allows users to filter data and explore insights in real time.
 
 ---
-
-# 📊 Dashboard Preview
+Dashboard Preview
 
 The dashboard provides an interactive overview of business KPIs, customer satisfaction, travel class performance, service quality, delay analysis, and customer segmentation.
 
@@ -49,7 +47,7 @@ This dashboard answers these business questions using data-driven insights.
 
 ---
 
-# 🎯 Project Objectives
+Project Objectives
 
 - Analyze airline passenger satisfaction.
 - Evaluate service quality ratings.
@@ -60,7 +58,7 @@ This dashboard answers these business questions using data-driven insights.
 
 ---
 
-# 📁 Dataset Information
+Dataset Information
 
 **Dataset:** Airline Passenger Satisfaction Dataset
 
@@ -79,7 +77,7 @@ The dataset contains:
 
 ---
 
-# 🛠 Tools & Technologies
+Tools & Technologies
 
 | Tool | Purpose |
 |-------|----------|
@@ -92,9 +90,9 @@ The dataset contains:
 
 ---
 
-# 📈 Dashboard Features
+Dashboard Features
 
-### 📌 Business KPIs
+--Business KPIs
 
 The dashboard displays:
 
@@ -106,7 +104,7 @@ The dashboard displays:
 
 ---
 
-### 📊 Customer Satisfaction
+Customer Satisfaction
 
 Displays the percentage of satisfied and dissatisfied passengers.
 
@@ -116,8 +114,7 @@ Business Value:
 - Helps management monitor customer experience.
 
 ---
-
-### 📊 Travel Class Performance
+Travel Class Performance
 
 Compares satisfaction across:
 
@@ -132,7 +129,7 @@ Business Value:
 
 ---
 
-### ⭐ Service Quality Rating
+Service Quality Rating
 
 Shows average ratings for:
 
@@ -149,8 +146,7 @@ Business Value:
 - Supports customer experience initiatives.
 
 ---
-
-### 👥 Customer Type Analysis
+Customer Type Analysis
 
 Compares:
 
@@ -164,7 +160,7 @@ Business Value:
 
 ---
 
-### ⏱ Delay Impact Analysis
+Delay Impact Analysis
 
 Compares:
 
@@ -178,7 +174,7 @@ Business Value:
 
 ---
 
-### 📉 Departure vs Arrival Delay
+Departure vs Arrival Delay
 
 Scatter plot showing the relationship between departure and arrival delays.
 
@@ -189,7 +185,7 @@ Business Value:
 
 ---
 
-# 🎛 Dashboard Filters
+Dashboard Filters
 
 Users can filter data by:
 
@@ -201,7 +197,7 @@ The dashboard updates all KPIs and charts instantly.
 
 ---
 
-# 💡 Key Insights
+Key Insights
 
 - Business Class passengers show the highest satisfaction.
 - Economy passengers are comparatively less satisfied.
@@ -212,7 +208,7 @@ The dashboard updates all KPIs and charts instantly.
 
 ---
 
-# ✅ Business Recommendations
+Business Recommendations
 
 - Improve Economy Class experience.
 - Reduce departure and arrival delays.
@@ -222,7 +218,7 @@ The dashboard updates all KPIs and charts instantly.
 
 ---
 
-# 📂 Project Structure
+Project Structure
 
 ```
 Airline_Passenger_Satisfaction_Analysis/
@@ -248,7 +244,7 @@ Airline_Passenger_Satisfaction_Analysis/
 
 ---
 
-# ▶️ How to Run
+How to Run
 
 Clone the repository
 
@@ -276,7 +272,7 @@ streamlit run Source/app.py
 
 ---
 
-# 📌 Future Improvements
+Future Improvements
 
 - Power BI Dashboard
 - SQL Integration
@@ -287,22 +283,13 @@ streamlit run Source/app.py
 
 ---
 
-# 👩‍💻 Author
+Author
 
 **Agalya Maheswaran**
 
 Aspiring Data Analyst
 
-**Skills**
 
-- Python
-- SQL
-- Excel
-- Power BI
-- Streamlit
-- Pandas
-- Matplotlib
-- Git & GitHub
 
 ---
 
