@@ -152,6 +152,29 @@ satisfaction_filter = st.sidebar.multiselect(
 
     default=airline["satisfaction"].unique()
 
+
+)
+
+# ---------------- BUSINESS INSIGHT FILTER ----------------
+
+st.sidebar.markdown("---")
+
+st.sidebar.subheader("🔍 Analyze Satisfaction By")
+
+analysis = st.sidebar.selectbox(
+    "Select a Factor",
+    [
+        "Travel Class",
+        "Customer Type",
+        "Departure Delay",
+        "Arrival Delay",
+        "Seat Comfort",
+        "Food and Drink",
+        "Inflight Service",
+        "Online Boarding",
+        "Cleanliness",
+        "Baggage Handling"
+    ]
 )
 
 
@@ -263,7 +286,7 @@ f"{total:,}"
 
 
 b.metric(
-"Satisfaction %",
+"Satisfied %",
 f"{satisfied:.1f}%"
 )
 
@@ -300,9 +323,10 @@ st.divider()
 
 def chart():
 
-    fig,ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(7,5))
+    fig.tight_layout()
 
-    return fig,ax
+    return fig, ax
 
 
 
@@ -328,14 +352,13 @@ with c1:
 
 
     df["satisfaction"].value_counts().plot(
-
-        kind="pie",
-
-        autopct="%1.1f%%",
-
-        ax=ax
-
-    )
+    kind="pie",
+    autopct="%1.1f%%",
+    colors=["#C0392B", "#2E8B57"],
+    startangle=90,
+    wedgeprops={"edgecolor":"white","linewidth":1},
+    ax=ax
+)
 
 
     ax.set_ylabel("")
@@ -359,17 +382,11 @@ with c2:
     fig,ax=chart()
 
 
-    df.groupby(
-
-        "Class"
-
-    )["satisfaction"].value_counts().unstack().plot(
-
-        kind="bar",
-
-        ax=ax
-
-    )
+    df.groupby("Class")["satisfaction"].value_counts().unstack().plot(
+    kind="bar",
+    ax=ax,
+    color=["#C0392B", "#2E8B57"]
+)
 
 
     ax.tick_params(
@@ -404,27 +421,31 @@ c3,c4 = st.columns(2)
 
 with c3:
 
-
     st.subheader("Service Quality Rating")
 
+    fig, ax = chart()
 
-    fig,ax=chart()
+    # Average rating in descending order
+    service_avg = df[service_columns].mean().sort_values(ascending=False)
 
-
-    df[service_columns].mean().plot(
-
+    service_avg.plot(
         kind="barh",
-
+        color="#2E8B57",      # Same green as 'Satisfied'
+        edgecolor="black",
         ax=ax
-
     )
 
+    # Highest rating at the top
+    ax.invert_yaxis()
 
-    ax.set_xlabel("Rating")
+    ax.set_xlabel("Average Rating", fontsize=11)
+    ax.set_ylabel("")
 
+    ax.set_xlim(0, 5)
 
-    st.pyplot(fig)
+    plt.tight_layout()
 
+    st.pyplot(fig, use_container_width=True)
 
 
 
@@ -435,44 +456,43 @@ with c3:
 
 with c4:
 
-
     st.subheader("Customer Type Analysis")
 
+    fig, ax = chart()
 
-    fig,ax=chart()
-
-
-
-    df.groupby(
-
-        "Customer Type"
-
-    )["satisfaction"].value_counts().unstack().plot(
-
-        kind="bar",
-
-        stacked=True,
-
-        ax=ax
-
+    customer = (
+        df.groupby("Customer Type")["satisfaction"]
+          .value_counts()
+          .unstack()
     )
 
+    customer.plot(
+    kind="bar",
+    stacked=False,
+    ax=ax,
+    width=0.65,
+    color=["#C0392B", "#2E8B57"]
+)
 
-    ax.tick_params(
-
-        axis='x',
-
-        rotation=0
-
+    ax.set_xticklabels(
+        ["Frequent\nTraveler", "Occasional\nTraveler"],
+        rotation=0,
+        fontsize=9
     )
 
+    ax.set_xlabel("Customer Type", fontsize=10)
+    ax.set_ylabel("Passengers", fontsize=10)
 
-    ax.set_ylabel("Passengers")
+    ax.legend(
+        title="Satisfaction",
+        fontsize=8,
+        title_fontsize=9,
+        loc="upper right"
+    )
 
+    fig.tight_layout()
 
-    st.pyplot(fig)
-
-
+    st.pyplot(fig, use_container_width=True)
 
 
 
@@ -512,12 +532,10 @@ with c5:
     ]
 
     ].mean().plot(
-
-        kind="bar",
-
-        ax=ax
-
-    )
+    kind="bar",
+    ax=ax,
+    color=["#C0392B", "#2E8B57"]
+)
 
 
     ax.tick_params(
@@ -542,33 +560,97 @@ with c5:
 
 with c6:
 
-
     st.subheader("Departure vs Arrival Delay")
 
-
-    fig,ax=chart()
-
+    fig, ax = chart()
 
     ax.scatter(
-
         df["Departure Delay in Minutes"],
-
-        df["Arrival Delay in Minutes"]
-
+        df["Arrival Delay in Minutes"],
+        color="#2E8B57",     # Dashboard green
+        alpha=0.6,           # Slight transparency
+        s=18,                # Point size
+        edgecolors="white",
+        linewidth=0.3
     )
 
+    ax.set_xlabel("Departure Delay (Minutes)", fontsize=11)
+    ax.set_ylabel("Arrival Delay (Minutes)", fontsize=11)
 
-    ax.set_xlabel(
-        "Departure Delay"
-    )
+    ax.grid(alpha=0.3, linestyle="--")
 
+    plt.tight_layout()
 
-    ax.set_ylabel(
-        "Arrival Delay"
-    )
+    st.pyplot(fig, use_container_width=True)
 
+    # ---------------- BUSINESS INSIGHTS ----------------
 
-    st.pyplot(fig)
+st.divider()
+
+st.subheader("📊 Business Insight")
+
+if analysis == "Travel Class":
+    st.info("""
+Business class passengers generally report higher satisfaction.
+
+Economy passengers show comparatively lower satisfaction due to seat comfort,
+food quality, and service experience.
+""")
+
+elif analysis == "Customer Type":
+    st.info("""
+Frequent travelers are more likely to be satisfied.
+
+Retaining loyal customers through rewards and personalized services can improve customer retention.
+""")
+
+elif analysis == "Departure Delay":
+    st.warning("""
+Higher departure delays reduce customer satisfaction.
+
+Reducing departure delays can significantly improve the passenger experience.
+""")
+
+elif analysis == "Arrival Delay":
+    st.warning("""
+Arrival delays strongly affect customer satisfaction.
+
+Improving on-time arrivals increases customer trust and loyalty.
+""")
+
+elif analysis == "Seat Comfort":
+    st.success("""
+Seat comfort is one of the strongest drivers of customer satisfaction.
+
+Investing in better seating can improve customer experience.
+""")
+
+elif analysis == "Food and Drink":
+    st.success("""
+Improving food quality and beverage options can increase overall passenger satisfaction.
+""")
+
+elif analysis == "Inflight Service":
+    st.success("""
+Friendly and efficient inflight service has a positive impact on customer satisfaction.
+""")
+
+elif analysis == "Online Boarding":
+    st.success("""
+A smooth online boarding process reduces waiting time and improves the travel experience.
+""")
+
+elif analysis == "Cleanliness":
+    st.success("""
+Passengers highly value aircraft cleanliness.
+
+Maintaining hygiene standards improves customer confidence.
+""")
+
+elif analysis == "Baggage Handling":
+    st.success("""
+Reliable baggage handling improves passenger trust and reduces travel complaints.
+""")
 
 
 
